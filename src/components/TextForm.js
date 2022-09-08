@@ -32,7 +32,7 @@ export default function TextForm(props) {
         navigator.clipboard.writeText(text.value);
     }
 
-    const [text,setText] = useState("This is for testing.");
+    const [text,setText] = useState("This is dummy text.");
   return (
     <>
     <div className="container mt-3">
