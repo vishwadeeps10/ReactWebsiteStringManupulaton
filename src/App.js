@@ -1,31 +1,19 @@
 import "./App.css";
 import About from "./components/About";
-import Navbar from "./components/Navbar";
-import TextForm from "./components/TextForm";
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
 
 function App() {
-  const [mode, setMode] = useState("light");
-
-  const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "rgb(48 69 90)";
-      document.body.style.color = "white";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-      document.body.style.color = "black";
-    }
-  };
+  
   return (
     <>
     <Router>
-      <Navbar title="TextTilled" mode={mode} toggleMode={toggleMode} />
       <Routes>
-          <Route exact path="about" element={<About />} />
-          <Route path="/" element={<TextForm mode={mode} />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/" element={<Login />} />
+          <Route path="dashboard" element={<Dashboard/>} />
       </Routes>
       </Router>
     </>

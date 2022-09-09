@@ -7,8 +7,8 @@ export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container">
-        <Link className="navbar-brand" to="/">
-          <b><i>{props.title}</i></b>
+        <Link className="navbar-brand" to="/dashboard">
+          <b><i>Texttilled</i></b>
         </Link>
         <button
           className="navbar-toggler"
@@ -23,15 +23,16 @@ export default function Navbar(props) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <Link className="nav-item nav-link active" to="/">
+            <Link className="nav-item nav-link active" to="/dashboard">
               Home <span className="sr-only">(current)</span>
             </Link>
-            {/* <Link className="nav-item nav-link " to="/">
-              Contact
-            </Link> */}
-            <Link className="nav-item nav-link " to="about">
+           
+            <Link className="nav-item nav-link " to="/about">
               About
             </Link>
+            {/* <Link className="nav-item nav-link " to="login">
+              Login
+            </Link> */}
             
           </div>
 

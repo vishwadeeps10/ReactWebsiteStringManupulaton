@@ -32,14 +32,14 @@ export default function TextForm(props) {
         navigator.clipboard.writeText(text.value);
     }
 
-    const [text,setText] = useState("This is dummy text.");
+    const [text,setText] = useState("This is dummy text   .");
   return (
     <>
     <div className="container mt-3">
             <h3>Enter Your text to analyze</h3>
             <div className="mb-3">
             <label htmlFor="myText" className="form-label">Enter your text here: </label>
-            <textarea className="form-control" style={{color:props.mode==='light'?'black':'white',backgroundColor:props.mode==='dark'?'rgb(48 69 90)':'white'}}  value={text} onChange={handleOnchange}  id="myText" rows="5"></textarea>
+            <textarea className="form-control"   value={text} onChange={handleOnchange}  id="myText" rows="5"></textarea>
             </div>
         <button className="btn btn-success " onClick={setUpperCase}>Convert to Upper</button>
         <button className="btn btn-success m-2" onClick={setlowerCase}>Convert to lower</button>

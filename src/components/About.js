@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from './Navbar'
 
 export default function About() {
 
@@ -7,6 +8,7 @@ export default function About() {
     color:'black' ,
   
   })
+  
 
   const [btntext ,setBtnText] = useState("Dark mode")
 
@@ -33,7 +35,23 @@ export default function About() {
     }
   }
 
+  const [mode, setMode] = useState("light");
+
+  const toggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+      document.body.style.backgroundColor = "rgb(48 69 90)";
+      document.body.style.color = "white";
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black";
+    }
+  };
+
   return (
+    <>
+    <Navbar mode={mode} toggleMode={toggleMode} />
     <div className="container mt-3" style={mystyle}>
       <h1>About Us</h1>
       <div className="accordion" id="accordionExample" style={mystyle}>
@@ -150,5 +168,6 @@ export default function About() {
       <button type="button" onClick={toggleStyle} className= "btn btn-primary m-3">{btntext}</button>
 
     </div>
+    </>
   );
 }
