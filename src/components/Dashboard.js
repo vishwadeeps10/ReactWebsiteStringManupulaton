@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import TextForm from './TextForm';
 
 export default function Dashboard() {
-    const [mode, setMode] = useState("light ");
+    const [mode, setMode] = useState("light");
 
   const toggleMode = () => {
     if (mode === "light") {
