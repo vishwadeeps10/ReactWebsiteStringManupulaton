@@ -1,7 +1,7 @@
 import React,{ useState }  from 'react';
 import "./login.css";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -10,6 +10,8 @@ export default function Login() {
   
 const[email, setEmail] = useState("")
 const[password, setpassword] = useState("")
+let navigate = useNavigate();
+
  //console.log({email, password});
 const handleEmail = (event)=>{
   setEmail(event.target.value)
@@ -19,20 +21,20 @@ setpassword(event.target.value)
 }
 const handlesubmit = async (e)=>{
   e.preventDefault();
-}
-const handleApi =()=>{
- console.log({email, password})
+  console.log({email, password})
  axios.post('https://reqres.in/api/login',{
   email:email,
   password:password
  })
  .then(result=>{
   console.log(result.data);
+  localStorage.setItem('token',result.data.token)
+  navigate("../dashboard", { replace: true });
  })
  .catch(error=>{
   console.log(error);
+  alert("ERROR::: "+ error)
  })
-
 }
    
   return (
@@ -50,7 +52,7 @@ const handleApi =()=>{
                 <input type="password"  value={password} onChange={handlePassword} className="form-control" id="loginInputPassword" placeholder="Enter Password" required />
             </div>
 
-            <button type="submit" onClick={handleApi} id='buttonId' className="btn btn-primary btn-block mt-2 mb-2">Login</button>
+            <button type="submit"  id='buttonId' className="btn btn-primary btn-block mt-2 mb-2">Login</button>
         </form>
     </div>
    
