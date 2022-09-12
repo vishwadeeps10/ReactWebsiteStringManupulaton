@@ -1,5 +1,6 @@
-import React,{ useState, useEffect }  from 'react'
-import "./login.css"
+import React,{ useState }  from 'react';
+import "./login.css";
+import axios from "axios";
 
 
 
@@ -7,45 +8,49 @@ import "./login.css"
 
 export default function Login() {
   
-  const [posts, setPosts] = useState([]);
+const[email, setEmail] = useState("")
+const[password, setpassword] = useState("")
+ //console.log({email, password});
+const handleEmail = (event)=>{
+  setEmail(event.target.value)
+}
+const handlePassword = (event)=>{
+setpassword(event.target.value)
+}
+const handlesubmit = async (e)=>{
+  e.preventDefault();
+}
+const handleApi =()=>{
+ console.log({email, password})
+ axios.post('https://reqres.in/api/login',{
+  email:email,
+  password:password
+ })
+ .then(result=>{
+  console.log(result.data);
+ })
+ .catch(error=>{
+  console.log(error);
+ })
 
-   useEffect(() => {
-      fetch('https://localhost:7110/api/UserRegister/login',
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        }
-        
-      })
-         .then((res) => res.json())
-         .then((data) => {
-            console.log(data);
-            setPosts(data);
-         })
-         .catch((err) => {
-            console.log(err.message);
-         });
-   }, []);
-
+}
    
   return (
   
     <div className='container' id="containerId"  >
         <h2 className='mb-3'>Login Here</h2>
-        <form >
+        <form  onSubmit={handlesubmit}>
             <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Username</label>
-                <input type="email"  className="form-control" id="loginInputEmail" aria-describedby="emailHelp" placeholder="Enter email" />
+                <input type="text" value={email} onChange={handleEmail}  className="form-control" id="loginInputEmail" aria-describedby="emailHelp" placeholder="Enter email" required />
             </div>
 
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
-                <input type="password"  className="form-control" id="loginInputPassword" placeholder="Enter Password" />
+                <input type="password"  value={password} onChange={handlePassword} className="form-control" id="loginInputPassword" placeholder="Enter Password" required />
             </div>
 
-            <button type="submit" id='buttonId' className="btn btn-primary btn-block mt-2 mb-2">Login</button>
+            <button type="submit" onClick={handleApi} id='buttonId' className="btn btn-primary btn-block mt-2 mb-2">Login</button>
         </form>
     </div>
    
