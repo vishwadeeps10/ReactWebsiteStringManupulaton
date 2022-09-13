@@ -12,7 +12,7 @@ export default function Login(props) {
 		let isAuth = localStorage.getItem("isLoggedIn");
 		if (isAuth === true || isAuth === "true") {
 			navigate("../dashboard", { replace: true });
-		} 
+		}
 	});
 
 	//onchange event handler
