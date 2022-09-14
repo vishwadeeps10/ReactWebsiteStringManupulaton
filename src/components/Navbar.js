@@ -5,7 +5,7 @@ export default function Navbar(props) {
 	const logout = () => {
 		localStorage.removeItem("token");
 		localStorage.removeItem("isLoggedIn");
-	};
+	};	
 	return (
 		<nav
 			className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}

@@ -22,6 +22,8 @@ export default function Login(props) {
 	const handlePassword = (event) => {
 		setpassword(event.target.value);
 	};
+
+
 	const handlesubmit = async (e) => {
 		e.preventDefault();
 
@@ -37,13 +39,14 @@ export default function Login(props) {
 				navigate("../dashboard", { replace: true });
 			})
 			.catch((error) => {
-				//console.log(error);
-				alert("ERROR::: " + error);
+				document.getElementById("errorId").innerHTML = "Username/password doesn't exist."
 			});
 	};
 
+
 	return (
 		<div className="container" id="containerId">
+			<p id="errorId"></p>
 			<h2 className="mb-3">Login Here</h2>
 			<form onSubmit={handlesubmit}>
 				<div className="form-group">
