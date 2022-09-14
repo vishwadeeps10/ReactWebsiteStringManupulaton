@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import "./login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,14 @@ export default function Login(props) {
 	const [password, setpassword] = useState("");
 	//authentication
 	let navigate = useNavigate();
-	
+
+	useEffect(() => {
+		let isAuth = localStorage.getItem("isLoggedIn");
+		if (isAuth === true || isAuth === "true") {
+			navigate("../dashboard", { replace: true });
+		}
+	});
+
 
 	//onchange event handler
 	const handleEmail = (event) => {

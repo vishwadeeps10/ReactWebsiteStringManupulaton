@@ -9,5 +9,4 @@ const PublicRoute = ({ element: element, ...rest }) => {
     )
 }
 
-
 export default PublicRoute;
