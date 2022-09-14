@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from './Navbar'
-import { useNavigate } from "react-router-dom";
+
 
 export default function About(props) {
 
@@ -10,16 +10,6 @@ export default function About(props) {
 
 	})
 	const [btntext, setBtnText] = useState("Dark mode")
-
-	let navigate = useNavigate();
-	useEffect(() => {
-		//Runs only on the first render
-		let isAuth = localStorage.getItem("isLoggedIn");
-		if (isAuth == null || isAuth === "null") {
-			navigate("../", { replace: true });
-		}
-
-	}, []);
 
 	let toggleStyle = () => {
 		if (mystyle.color === 'black') {

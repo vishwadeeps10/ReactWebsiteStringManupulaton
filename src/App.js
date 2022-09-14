@@ -1,21 +1,28 @@
 import "./App.css";
 import About from "./components/About";
-import React from "react";
+import React,{Fragment} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import Auth from "./components/Auth";
+
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <>
       <Router>
+     
         <Routes>
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/" element={<Login />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="auth" element={<Auth />} />
+        <Route element={<PrivateRoute/>}>
+              <Route  path="/about" element={<About />} />
+              <Route path="/dashboard" element={<Dashboard/>}  />   
+          </Route>
+
+          <Route exact path="/" element={<Login />} />     
+          
+
         </Routes>
+        
       </Router>
     </>
   );

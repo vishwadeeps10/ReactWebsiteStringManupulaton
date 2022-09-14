@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 export default function TextForm(props) {
+
+		
 	let setUpperCase = () => {
 		let upper = text.toUpperCase();
 		setText(upper)
@@ -36,6 +38,7 @@ export default function TextForm(props) {
 	return (
 		<>
 			<div className="container mt-3">
+				
 				<h3>Enter Your text to analyze</h3>
 				<div className="mb-3">
 					<label htmlFor="myText" className="form-label">Enter your text here: </label>
