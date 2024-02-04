@@ -6,6 +6,17 @@
   height: 40vmin;
   pointer-events: none;
 }
+.dark-mode .btn-toggle {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+text-dark{
+  color:#FFFFFF
+}
+.bg-dark{
+  color:  #222222;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

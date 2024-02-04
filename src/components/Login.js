@@ -4,6 +4,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {
+	useEffect(() => {
+		document.title = 'Login';
+	  }, []);
 	const [email, setEmail] = useState("");
 	const [password, setpassword] = useState("");
 	//authentication
@@ -86,6 +89,13 @@ export default function Login(props) {
 					Login
 				</button>
 			</form>
+			<div>
+				<br />
+			<p>Username: eve.holt@reqres.in<br/>
+			password: cityslicka</p>
 		</div>
+			
+		</div>
+		
 	);
 }
