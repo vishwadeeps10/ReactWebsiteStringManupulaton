@@ -14,17 +14,31 @@ export default function Navbar(props) {
 	  sessionStorage.setItem("mode", newMode);
 	  setMode(newMode);
 	};
-  
 	useEffect(() => {
-	  // Set initial styles based on stored mode
-	  if (mode === "dark") {
-		document.body.style.backgroundColor = "#222222";
-		document.body.style.color = "white";
-	  } else {
-		document.body.style.backgroundColor = "white";
-		document.body.style.color = "black";
-	  }
-	}, [mode]);
+		// Set initial styles based on stored mode
+		if (mode === "dark") {
+		  document.body.style.backgroundColor = "#222222";
+		  document.body.style.color = "white";
+	  
+		  // Update input textbox styles for dark mode
+		  const inputTextbox = document.querySelector('.input-textbox');
+		  if (inputTextbox) {
+			inputTextbox.style.backgroundColor = "#222222";
+			inputTextbox.style.color = "white";
+		  }
+		} else {
+		  document.body.style.backgroundColor = "white";
+		  document.body.style.color = "black";
+	  
+		  // Reset input textbox styles for light mode
+		  const inputTextbox = document.querySelector('.input-textbox');
+		  if (inputTextbox) {
+			inputTextbox.style.backgroundColor = "initial";
+			inputTextbox.style.color = "initial";
+		  }
+		}
+	  }, [mode]);
+	  
 	
 	return (
 		<nav

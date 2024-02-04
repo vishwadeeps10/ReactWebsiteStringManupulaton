@@ -64,7 +64,7 @@ export default function TextForm(props) {
 				<h3>Enter Your text to analyze</h3>
 				<div className="mb-3">
 					<label htmlFor="myText" className="form-label">Enter your text here: </label>
-					<textarea className="form-control" value={text} onChange={handleOnchange} id="myText" rows="5"></textarea>
+					<textarea className="form-control input-textbox" value={text} onChange={handleOnchange} id="myText" rows="5"></textarea>
 				</div>
 				<button className="btn btn-success " onClick={setUpperCase}>Convert to Upper</button>
 				<button className="btn btn-success m-2" onClick={setlowerCase}>Convert to lower</button>
